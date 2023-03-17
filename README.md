@@ -50,14 +50,29 @@ You can see these outputs if elastisearch is available.
 }
 ~~
 
-# UPLOAD
+# UPLOAD to GitHub Container Registry
 
-run these commands to upload the new container image to [docker hub](https://hub.docker.com/):
+Before you upload your image, you should put a tag to your image.
+
+1. Find the ID for the Docker image you want to tag.
+  ~~~
+  docker images
+  ~~~
+2. Tag your Docker image using the image ID and your desired image name and hosting destination.
+  ~~~
+  docker tag 38f737a91f39 ghcr.io/shirasagi/elasticsearch:latest
+  ~~~
+
+
+Then run these commands to upload the new container image to [GitHub Container Registry](https://github.com/orgs/shirasagi/packages):
 
 ~~~bash
-docker login
-docker push shirasagi/elasticsearch
+export CR_PAT=YOUR_TOKEN
+echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
+docker push ghcr.io/shirasagi/elasticsearch
 ~~~
+
+YOUR_TOKEN is a token created on the github your account page with "write:packages" scope, and USERNAME is your github account id.
 
 # SHIRASAGI との統合
 
