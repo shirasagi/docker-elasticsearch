@@ -72,7 +72,7 @@ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
 docker push ghcr.io/shirasagi/elasticsearch
 ~~~
 
-YOUR_TOKEN is a token created on the github your account page with "write:packages" scope, and USERNAME is your github account id.
+YOUR_TOKEN is a personal access token created on the github your account page with "write:packages" scope, and USERNAME is your github account id.
 
 # SHIRASAGI との統合
 
