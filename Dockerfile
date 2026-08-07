@@ -1,4 +1,4 @@
-FROM elasticsearch:9.3.1
+FROM elasticsearch:9.4.4
 LABEL maintainer="NAKANO Hideo <nakano@web-tips.co.jp>"
 
 # install prerequisities

@@ -24,42 +24,47 @@ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 \
 
 And then, run below command to check whether elastisearch is avaiable or not.
 
-~~~
-curl 'http://127.0.0.1:9200/?pretty'
+~~~bash
+curl -i 'http://127.0.0.1:9200/?pretty'
 ~~~
 
 You can see these outputs if elastisearch is available.
 
-~~
+~~~
+HTTP/1.1 200 OK
+X-elastic-product: Elasticsearch
+content-type: application/json
+content-length: 540
+
 {
-  "name" : "6b32598c95f7",
+  "name" : "722969b34190",
   "cluster_name" : "docker-cluster",
-  "cluster_uuid" : "bFudCoqKRNGwvV30q_sY3Q",
+  "cluster_uuid" : "23kRdhUBRBGoTndk7TgFQg",
   "version" : {
-    "number" : "7.17.4",
+    "number" : "9.4.4",
     "build_flavor" : "default",
     "build_type" : "docker",
-    "build_hash" : "79878662c54c886ae89206c685d9f1051a9d6411",
-    "build_date" : "2022-05-18T18:04:20.964345128Z",
+    "build_hash" : "77cd231096e56b56ac1d24445a9430a252622e6d",
+    "build_date" : "2026-07-15T22:13:42.125968334Z",
     "build_snapshot" : false,
-    "lucene_version" : "8.11.1",
-    "minimum_wire_compatibility_version" : "6.8.0",
-    "minimum_index_compatibility_version" : "6.0.0-beta1"
+    "lucene_version" : "10.4.0",
+    "minimum_wire_compatibility_version" : "8.19.0",
+    "minimum_index_compatibility_version" : "8.0.0"
   },
   "tagline" : "You Know, for Search"
 }
-~~
+~~~
 
 # UPLOAD to GitHub Container Registry
 
 Before you upload your image, you should put a tag to your image.
 
 1. Find the ID for the Docker image you want to tag.
-  ~~~
+  ~~~bash
   docker images
   ~~~
 2. Tag your Docker image using the image ID and your desired image name and hosting destination.
-  ~~~
+  ~~~bash
   docker tag 38f737a91f39 ghcr.io/shirasagi/elasticsearch:latest
   ~~~
 
