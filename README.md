@@ -65,7 +65,7 @@ Before you upload your image, you should put a tag to your image.
   ~~~
 2. Tag your Docker image using the image ID and your desired image name and hosting destination.
   ~~~bash
-  docker tag 38f737a91f39 ghcr.io/shirasagi/elasticsearch:latest
+  docker tag 38f737a91f39 ghcr.io/shirasagi/elasticsearch:9
   ~~~
 
 
@@ -74,7 +74,7 @@ Then run these commands to upload the new container image to [GitHub Container R
 ~~~bash
 export CR_PAT=YOUR_TOKEN
 echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
-docker push ghcr.io/shirasagi/elasticsearch
+docker push ghcr.io/shirasagi/elasticsearch:9
 ~~~
 
 YOUR_TOKEN is a personal access token created on the github your account page with "write:packages" scope, and USERNAME is your github account id.
